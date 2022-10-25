@@ -20,7 +20,7 @@
             echo 'CONTACT';
             break;
         default:
-            $controlleur = 'accueil';
+            $controlleur = 'homepage';
             echo 'ACCUEIL';
             break;
 
