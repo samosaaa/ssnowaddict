@@ -9,7 +9,7 @@
     
     var_dump($_SERVER['REQUEST_URI']);
 
-    $requestUri = explode('/',$_SERVER['REQUEST_URI']); // un tableau contenant le chemin
+    $requestUri = explode('/', $_SERVER['REQUEST_URI']); // un tableau contenant le chemin
 
     switch ($requestUri[array_key_last($requestUri)]) {
         /**case HOMEPAGE_PATH; //case '/';
