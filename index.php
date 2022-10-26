@@ -16,17 +16,37 @@
             echo 'ACCEUIL';
             break;*/
         case CONTACT_PATH: //case '/contact':
-            $controlleur = 'contact';
+            $controller = 'contact';
+            $action='contact';
             echo 'CONTACT';
             break;
         default:
-            $controlleur = 'homepage';
+            $controller = 'homepage';
+            $action='home';
             echo 'ACCUEIL';
             break;
-
     }
 
-    require_once('controllers/'.$controlleur.'Controller.php');
+        try{
+            if (isset($_GET['action'] && '' !== $_GET['action'])) {
+                $action = $_GET['action'];
+                if ('figure' === $_GET['controller']) {
+                    $figureController = new FigureController();
+
+                    if ('create' === $action) {
+                        $figureController->create();
+                    }
+                }
+            }
+        }catch ( \Exception $exception) {
+            throw new \Exception ($exception->getMessage());
+        }
+
+    require_once('controllers/'.$controller.'Controller.php');
+
+    $controller = new ($controller.'Controller');
+
+    echo $controller->{$action}('Jacques');
 
     /*
         if ($_SERVER['REQUEST_URI'] === '/') { // car les dossiers se termine par des / slash

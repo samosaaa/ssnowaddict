@@ -1,14 +1,10 @@
 <?php
-    echo 'Je suis le controlleur contact';
-?>
-
-<?php
     class ContactController {
 
         /**
          * Contact function
          */
-        function contact( String $name): string {
+        function contact(string $name): string {
             return "HEllo $name!";
         }
     }
